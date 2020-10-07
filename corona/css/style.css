@@ -1,16 +1,80 @@
-
+/* Поле Игры */
 #gameBlock 
 {
-background-image: url(../img/img.jpg); 
+  position: relative;
+  background: #4c4c4c; 
   width: 1000px;
   height: 600px;
   margin: 0 auto; 
-  position: relative;
-  border: 2px solid black;
-  border-radius: 1%;
+  overflow: hidden;
+}
+
+/* Поле Информации */
+#infoBlock 
+{
+  width: 1000px;
+  height: 60px;
+  background: #3e3e3e;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 
+/* Дома */
+#building 
+{
+  position: absolute;
+  top: 100px;
+  width: 100px;
+  height: 100px;
+}
+
+.house 
+{
+  background: #6ca452;
+}
+
+.hospital 
+{
+  background: #c96b74;
+}
+
+
+/* Люди */
+.people
+{
+  position: absolute;
+  top: 450px;
+  width: 40px;
+  height: 40px;
+  left: -40px;
+  border-radius: 50%;
+}
+
+.healthy
+{
+  background: #6ca452;
+}
+
+.sick
+{
+  background: #c96b74;
+}
+
+
+/* Указатель */
+.vl {
+  border-left: 2px dashed white;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: -205px;
+  display: none;
+  opacity: 0.5;
+}
+
+
+/* Жизни */
 #lifes 
 {
   position: absolute;
@@ -18,118 +82,33 @@ background-image: url(../img/img.jpg);
   right: 15px;
 }
 
-#lifes span 
- {
-    width: 15px;
-    height: 15px;
-    border-radius: 44%;
-    border: 1px solid  black;
-    background: #DC143C;
-    float: right;
+#lifes #life 
+{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #c9b56b;
+  background: #ff6d69;
+  float: right;
+  margin-right: 2px;
 }
 
 
-#h2 
+/*Стиль очков*/
+#points
 {
-	position: absolute;
-	top: 10px;
-	left:  5px;
-}
-
-/*Стили очков*/
- #points
-{
-  font-size: 34px;
-  color:#3CB371
+  position: absolute;
+  font-size: 40px;
+  color: #c9b56b;
   font-weight: bold; 
   left: 13px;
-  position:absolute;
   top: 2px;
 }
 
 
-
-.buildings 
+#infoBlock h2 
 {
-top:20px;
-/*background:#FF0000 ;*/
-width: 100px;
-height: 100px;
-border-radius: 40%;
-position: absolute;
-
+  position: absolute;
+  margin: 15px 0 15px 15px;
+  color: #c9b56b;
 }
-.resedential1
-{
-display: block;
-background:#FF0000 ;
-left: 30px;
-}
-
-
-
-.resedential2
-{
-background:#FF0000 ;
-left: 290px ;
-}
-
-
-
-
-.treatment1
-{
-background:#228B22 ;
-left: 160px;
-}
-
-
-
-
-
-.treatment2
-{
-background:#228B22 ;
-left: 420px;
-}
-
-
-
-
-.people
-{
-top:450px;
-width: 40px;
-height: 40px;
-border-radius: 30%;
-position: absolute;
-left: -40px;
-}
-
-.healthy
-{
-	background:#FF0000 ;
-}
-
-.sick
-{
-	background:#228B22;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

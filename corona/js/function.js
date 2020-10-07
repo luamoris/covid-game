@@ -1,211 +1,168 @@
-var gameBlock = document.querySelector("#gameBlock");
-var infoBlock = document.querySelector("#infoBlock");
-// Счет в игре:
-var i = 0;
+
+
+/*
+1. Для названий переменных лучше использовать полные имена, которые характеризуют вещь, 
+   а не имена из нескольких букв. 
+2. Зачем делать id для people с разными id? 
+3. Зачем время? Игра до окончания жизней
+*/
 
 
 
 
 /*========================================================
-Cоздание Элиментов Игры:
+Дополнительные функции
 =========================================================*/
 
-
-// Создание домов 
-function createBuildings()
-{
-
-var buildings = document.createElement("div");
-buildings.id = "buildings";
-gameBlock.appendChild(buildings);
-
-var t = random(2);
-if (t == 1) 
-{
-	// Жилые дома
-	buildings.className = " buildings resedential1 ";
-	// Больницы
-	buildings.className = " buildings treatment1";
-
-	buildings.className = " buildings resedential2 ";
-    
-    buildings.className = " buildings treatment2";
-}else
-{
-	buildings.className = " buildings resedential1 ";
-
-	buildings.className = " buildings treatment1";
-
-	buildings.className = " buildings resedential2 ";
-    
-    buildings.cclassName = " buildings treatment2";
-}
-
-}
-createBuildings();
-
-
-
-
-
-// Создание людей:
-var peopleNum = 0;
-function createPeople()
-{
-  peopleNum++;
-var people = document.createElement("div");
-    people.id = "people" +peopleNum;
-    gameBlock.appendChild(people);
-var y = random(2) ;   
-if ( y == 1 )
-{
-	people.className = "people healthy";
-}else
-
-   people.className = "people sick";
-}
-
-
-
-
-
-
-
-// Создание жизней:
-
-function сreateLifes()
-{
-var lifes = document.createElement("div");
-lifes.id = "lifes";
-gameBlock.appendChild(lifes);
-
-// Желаемое кол-во жизней:
-var e = 5 ;
-// Текущее кол-во жизней:
-var r = 0;
-
-// Цикл,создающий жизни:
-while (r < e)
-{
-span = document.createElement("span");
-span.id = "lfs";
-lifes.appendChild(span);
-r++;
-}
-}
-
-сreateLifes();
-
-
-// Создание очков:
-
- function createPoints()
-{
-var points = document.createElement("div");
-points.id = "points";
-points.innerText = i ;
-gameBlock.appendChild(points);
-
-}
-createPoints();
-
-
-
-// Создание таймера игры:
-
-function createTimer()
-
-{
-var h2 = document.createElement("h2");
-       h2.id = "h2";
-       h2.innerText = "Время:";
-       infoBlock.appendChild(h2);
-       
-var timer = document.createElement("span");
-     
-     h2.appendChild(timer);
-     timer.innerText = 10;
-
-
-
-// Функция отсчета таймера:
- var timeOut = setInterval (function() 
- {
-  timer.innerText = timer.innerText - 1;
-  // Условие при выполнении которого,таймер завершается,игра прекращается:
-  if (timer.innerText == 0)
-{ 
-    clearInterval(timeOut);
-       
-}
-
- }, 1000);
-}
-
-createTimer();
-
-
-
-
-
-
-// Рандом:
+// Рандом
 function random(max)
 {
-	var rand = 1 + Math.random() * (max + 1);
-	rand = Math.floor(rand);
-	return rand;
+  var rand = 1 + Math.random() * (max + 1);
+  rand = Math.floor(rand);
+  return rand;
 }
 
-function RandomMovement() {
-      createPeople();
-      var speed = random(5);
-      console.log(speed);
-      var people = document.querySelector("#people" + peopleNum);  
-  var running = setInterval(function() {
 
-        people.style.left = people.offsetLeft + speed + "px";
-if(people.offsetLeft > 1000){
-    clearInterval(running);
-    clearInterval(spawn);
+
+/*========================================================
+Создание элементов игры
+=========================================================*/
+
+// Создание элемента - дом
+function createHouse(left)
+{
+  var building = document.createElement("div");
+  building.id = "building";
+  building.style.left = left + "px";
+
+  var choiceOfClass = random(2);
+  if(choiceOfClass == 1) { building.className = "house";  }
+  else { building.className = "hospital"; }
+
+  gameBlock.appendChild(building);
+}
+
+// Создание элемента - человек
+function createPeople()
+{
+  peopleCount++;
+  var people = document.createElement("div");
+  people.id = "people" + peopleCount;
+
+  var choiceOfClass = random(100);
+  if(choiceOfClass % 2 == 0) { people.className = "people healthy";  }
+  else { people.className = "people sick"; }
+
+  var dottedLine = document.createElement("div");
+  dottedLine.className = "vl";
+
+  people.appendChild(dottedLine);
+  gameBlock.appendChild(people);
+  return people;
+}
+
+// Создание жизней
+function сreateLifes(newQuantityLifes)
+{
+  var lifes = document.createElement("div");
+  lifes.id = "lifes";
+
+  var count = 0;
+  while (count != newQuantityLifes)
+  {
+    var life = document.createElement("span");
+    life.id = "life";
+    lifes.appendChild(life);
+    count++;
+  }
+  gameBlock.appendChild(lifes);
+}
+
+// Создание очков
+function createPoints()
+{
+  var points = document.createElement("div");
+  points.id = "points";
+  points.innerText = score;
+  gameBlock.appendChild(points);
+}
+
+// Создание таймера игры
+function createTimer()
+{
+  var h2 = document.createElement("h2");
+  h2.innerText = "Время: ";
+
+  var timer = document.createElement("span");
+  timer.innerText = time;
+
+  h2.appendChild(timer);
+  infoBlock.appendChild(h2);
+
+  // Функция отсчета таймера:
+  var timeOut = setInterval (function() 
+  {
+    timer.innerText = timer.innerText - 1;
+    if (timer.innerText == 0) { clearInterval(timeOut); }
+  }, 1000);
+}
+
+
+
+/*========================================================
+Обработка элементов игры
+=========================================================*/
+
+// Создание элемента человек и задание ему скорости
+function randomMovement() 
+{
+  var people = createPeople();
+  var dottedLine = people.querySelector(".vl")
+  
+  var speed = random(4);
+  var opacity = 1;
+
+  var running = setInterval(function() {
+    people.style.left = people.offsetLeft + speed + "px";
+    if(people.offsetLeft > 1000)
+    {
+        clearInterval(running);
+        people.remove();
+    }
+  }, 20);
+
+  people.onmousemove = function() {
+      dottedLine.style.display = "block";
+    }
+
+  people.onmouseleave = function() {
+    dottedLine.style.display = "none";
   }
 
-  }, 20)
-  
-  setTimeout(function() {
-    
+  people.onclick = function() {
+    clearInterval(running);
+    dottedLine.style.display = "none";
+    people.onclick = null;
+    people.onmousemove = null;
+    people.onmouseleave = null;
 
-  }, 10000)
+    var timer = setInterval(function() {
+      people.style.top = people.offsetTop - 4 + 'px';
+      people.style.opacity = opacity;
+      opacity = (opacity - 0.02).toFixed(2);
+      if(opacity == 0.0) {
+        clearInterval(timer);
+        people.remove();
+      }
+    }, 20);
+  }
+
 }
-        
 
-var spawn;
-function peopleSpawner() {
+// Генерация людей 
+function peopleSpawner() 
+{
   spawn = setInterval(function () {
-    RandomMovement();
-  }, 1000)
- 
+    randomMovement();
+  }, 2000)
 }
-peopleSpawner();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -68,6 +68,16 @@ function moveBlockTop() {
 // Клик по блоку
 block.onclick = moveBlockTop;
 
+block.onmousemove = function() {
+	let l = document.querySelector(".vl");
+	l.style.display = "block";
+}
+
+block.onmouseleave = () => {
+	let l = document.querySelector(".vl");
+	l.style.display = "none";
+}
+
 
 
 /*=================================================

@@ -35,3 +35,12 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
+
+.vl {
+	border-left: 2px dashed black;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: -200px;
+    display: none;
+}
