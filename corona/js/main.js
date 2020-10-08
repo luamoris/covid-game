@@ -2,13 +2,13 @@
 Запуск игры
 =========================================================*/
 
-createHouse(120);
-createHouse(340);
-createHouse(560);
-createHouse(780);
+// createHouse(120, "hospital");
+// createHouse(340, "house");
+// createHouse(560, "hospital");
+// createHouse(780, "house");
 
-сreateLifes(quantityLifes);
-createPoints();
-createTimer();
+// сreateLifes(quantityLifes);
+// createPoints();
+// createTimer();
 
-peopleSpawner();
+// peopleSpawner();

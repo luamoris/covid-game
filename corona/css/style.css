@@ -1,114 +1,211 @@
 /* Поле Игры */
 #gameBlock 
 {
-  position: relative;
-  background: #4c4c4c; 
-  width: 1000px;
-  height: 600px;
-  margin: 0 auto; 
-  overflow: hidden;
+    position: relative;
+    background: #4c4c4c; 
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto; 
+    overflow: hidden;
 }
 
 /* Поле Информации */
 #infoBlock 
 {
-  width: 1000px;
-  height: 60px;
-  background: #3e3e3e;
-  margin: 0 auto;
-  margin-bottom: 15px;
+    width: 1000px;
+    height: 60px;
+    background: #3e3e3e;
+    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 
 /* Дома */
 #building 
 {
-  position: absolute;
-  top: 100px;
-  width: 100px;
-  height: 100px;
+    position: absolute;
+    top: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 .house 
 {
-  background: #6ca452;
+    background: #6ca452;
 }
 
 .hospital 
 {
-  background: #c96b74;
+    background: #c96b74;
 }
 
 
 /* Люди */
 .people
 {
-  position: absolute;
-  top: 450px;
-  width: 40px;
-  height: 40px;
-  left: -40px;
-  border-radius: 50%;
+    position: absolute;
+    top: 450px;
+    width: 50px;
+    height: 50px;
+    left: -40px;
+    border-radius: 50%;
 }
 
 .healthy
 {
-  background: #6ca452;
+    background: #6ca452;
 }
 
 .sick
 {
-  background: #c96b74;
+    background: #c96b74;
 }
 
 
 /* Указатель */
 .vl {
-  border-left: 2px dashed white;
-  height: 200px;
-  position: absolute;
-  left: 50%;
-  top: -205px;
-  display: none;
-  opacity: 0.5;
+    border-left: 2px dashed white;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: -210px;
+    display: none;
+    opacity: 0.5;
 }
 
 
 /* Жизни */
 #lifes 
 {
-  position: absolute;
-  top: 11px;
-  right: 15px;
+    position: absolute;
+    top: 11px;
+    right: 15px;
 }
 
 #lifes #life 
 {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid #c9b56b;
-  background: #ff6d69;
-  float: right;
-  margin-right: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #c9b56b;
+    background: #ff6d69;
+    float: right;
+    margin-right: 3px;
 }
 
 
 /*Стиль очков*/
 #points
 {
-  position: absolute;
-  font-size: 40px;
-  color: #c9b56b;
-  font-weight: bold; 
-  left: 13px;
-  top: 2px;
+    position: absolute;
+    font-size: 40px;
+    color: #c9b56b;
+    font-weight: bold; 
+    left: 13px;
+    top: 2px;
 }
 
 
 #infoBlock h2 
 {
-  position: absolute;
-  margin: 15px 0 15px 15px;
-  color: #c9b56b;
+    position: absolute;
+    margin: 15px 0 15px 15px;
+    color: #c9b56b;
+}
+
+
+
+
+/*============= Дополнительно =============*/
+
+/* Больные */
+#score-sick 
+{
+    float: right;
+    width: 100px;
+    height: 100%;
+}
+
+#score-sick div 
+{
+    width: 30px;
+    height: 30px;
+    margin: 15px 15px 15px 15px;
+    float: left;
+}
+
+#score-sick div img 
+{
+    width: 100%;
+    height: 100%;
+}
+
+#score-sick h5 
+{
+    color: #c9b56b;
+    font-size: 30px;
+    float: left;
+    margin: 13px 0 13px 0;
+}
+
+
+/* Здоровые */
+#score-healthy 
+{
+    float: right;
+    width: 100px;
+    height: 100%;
+}
+
+#score-healthy div 
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 15px 15px 15px 15px;
+    float: left;
+}
+
+#score-healthy div img 
+{
+    width: 100%;
+    height: 100%;
+}
+
+#score-healthy h5 
+{
+    color: #c9b56b;
+    font-size: 30px;
+    float: left;
+    margin: 13px 0 13px 0;
+}
+
+/* Мертвые */
+#score-dead 
+{
+    float: right;
+    width: 100px;
+    height: 100%;
+}
+
+#score-dead div 
+{
+    width: 30px;
+    height: 30px;
+    margin: 15px 15px 15px 15px;
+    float: left;
+}
+
+#score-dead div img 
+{
+    width: 100%;
+    height: 100%;
+}
+
+#score-dead h5 
+{
+    color: #c9b56b;
+    font-size: 30px;
+    float: left;
+    margin: 13px 0 13px 0;
 }
