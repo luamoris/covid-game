@@ -1,21 +1,10 @@
 
-
-/*
-1. Для названий переменных лучше использовать полные имена, которые характеризуют вещь, 
-   а не имена из нескольких букв. 
-2. Зачем делать id для people с разными id? 
-3. Зачем время? Игра до окончания жизней
-*/
-
-
-
-
 /*========================================================
 Дополнительные функции
 =========================================================*/
 
 // Рандом
-function random(max)
+function random(max) 
 {
     var rand = 1 + Math.random() * (max + 1);
     rand = Math.floor(rand);
@@ -231,7 +220,7 @@ function randomMovement()
 {
     var people = createPeople();
     var dottedLine = people.querySelector(".vl")
-    var speed = random(2); // 4
+    var speed = random(speedMax);
     var opacity = 1;
 
     var running = setInterval(function() 
@@ -286,5 +275,5 @@ function peopleSpawner()
     spawn = setInterval(function () 
     {
         randomMovement();
-    }, 2000)
+    }, 1500)
 }
