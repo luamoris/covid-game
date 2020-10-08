@@ -5,13 +5,31 @@
 // Счет в игре
 var score = 0;
 // Время игры в секундах
-var time = 60;
+var time = 20;
 // Количество людей 
 var peopleCount = 0;
 // Таймер, который отвечает за появление людей
 var spawn = null;
 // Количество жизней 
 var quantityLifes = 5;
+
+
+// Количество больних
+var scoreSick = 0;
+// Элемент в который нужно записывать количество больных людей
+var quantitySickEl = null;
+
+
+// Количество здоровых
+var scoreHealthy = 0;
+// Элемент в который нужно записывать количество здоровых людей
+var quantityHealthyEl = null;
+
+
+// Количество здоровых
+var scoreDead = 0;
+// Элемент в который нужно записывать количество людей, которые умерли
+var quantityDeadEl = null;
 
 
 /*=================================================
@@ -22,5 +40,3 @@ var quantityLifes = 5;
 var gameBlock = document.querySelector("#gameBlock");
 // Информационный блок
 var infoBlock = document.querySelector("#infoBlock");
-
-
