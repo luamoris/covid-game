@@ -3,6 +3,43 @@
 Дополнительные функции
 =========================================================*/
 
+//создание старт блока
+function createStartBlock() 
+{
+    gameName();
+    startBlock = document.createElement("div");
+    startBlock.id = "start-block";
+
+    var startButton = document.createElement("button");
+    startButton.id = "start-button";
+    startButton.innerText = "Начать";
+
+    startBlock.appendChild(startButton);
+
+    gameBlock.appendChild(startBlock);
+
+    startButton.onclick = gameStart;
+} 
+
+function gameName()
+{
+    gameName = document.createElement("h2");
+    gameName.id = "game-name";
+    gameName.innerText = "Covid Game";
+
+
+    infoBlock.appendChild(gameName);
+}
+
+
+
+
+
+
+
+
+
+
 // Рандом
 function random(max) 
 {
@@ -275,5 +312,5 @@ function peopleSpawner()
     spawn = setInterval(function () 
     {
         randomMovement();
-    }, 1500)
+    }, 1600)
 }

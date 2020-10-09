@@ -33,6 +33,13 @@ var scoreDead = 0;
 // Элемент в который нужно записывать количество людей, которые умерли
 var quantityDeadEl = null;
 
+//блок старта
+var startBlock =  null;
+//кнопка старта
+var startButton = null;
+//название игры
+var gameName = null;
+
 
 /*=================================================
 Игровые элементы HTML
