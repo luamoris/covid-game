@@ -254,3 +254,61 @@ body {
     left: 575px;
     font-size: 34px;
 }
+
+#endGameBlock
+{
+  position: relative;
+  background: #4c4c4c; 
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto; 
+  overflow: hidden;
+  text-align: center;
+}
+#h2
+{
+ position: absolute;
+ font-size: 50px;
+}
+#h3 span
+{
+    color:  green;
+}
+#h3
+{
+  
+   position: relative;
+   top:250px;
+   font-size: 35px; 
+}
+#h4 span
+{
+    color: red;
+}
+#h4
+{
+ 
+  position: relative;
+  top:300px;
+  font-size: 35px;   
+}
+#h5
+{
+
+  position: relative;
+  top:350px;
+  font-size: 35px;   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

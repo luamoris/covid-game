@@ -32,6 +32,51 @@ function gameName()
 }
 
 
+// Блок конца игры
+function endGameBlock()
+{
+   
+   endGameBlock = document.createElement("div");
+   endGameBlock.id = "endGameBlock";
+   var h2 = document.createElement("h2");
+       h2.id = "h2";
+       if (scoreDead >= 10 || scoreSick >=20 )
+       {
+       endGame; 
+       h2.innerText = "К сожалению вы допустили Эпидемию Covid-19 до появления вакцины";
+       }else
+       {
+       h2.innerText = "Поздравляю!!! Вам удалось остановить расспростронение эпидемии Covid-19 до появления вакцины";
+       }
+   var h3 = document.createElement("h2");
+       h3.innerText = "Количество здоровых:";
+       h3.id = "h3";
+   var spanh3 = document.createElement("span");   
+       spanh3.innerText = scoreHealthy;
+       h3.appendChild(spanh3);
+
+   var h4 =  document.createElement("h2");
+       h4.innerText = "Количество больных:";
+       h4.id = "h4";
+   var spanh4 = document.createElement("span");   
+       spanh4.innerText = scoreSick;
+       h4.appendChild(spanh4);
+
+   var h5 =  document.createElement("h2"); 
+       h5.innerText = "Количество смертей:";
+       h5.id = "h5";
+   var spanh5 = document.createElement("span");   
+       spanh5.innerText = scoreDead;
+       h5.appendChild(spanh5);
+       gameBlock.appendChild(endGameBlock);
+       endGameBlock.appendChild(h2);
+       endGameBlock.appendChild(h3);
+       endGameBlock.appendChild(h4);
+       endGameBlock.appendChild(h5);
+}
+
+
+
 
 
 
@@ -137,6 +182,7 @@ function createTimer()
         { 
             clearInterval(timeOut); 
             clearInterval(spawn);
+            endGame();
         }
     }, 1000);
 }
@@ -314,3 +360,73 @@ function peopleSpawner()
         randomMovement();
     }, 1600)
 }
+
+
+
+
+
+
+
+
+
+
+/*================================================
+Удаление элиментов игры:
+=================================================*/
+
+function removeBuilding()
+{
+ var building = document.querySelector(".hospital");
+ while (building != null)
+ {
+    building.remove();
+    building = document.querySelector(".hospital");
+ }
+  var building = document.querySelector(".house");
+  while (building != null)
+  {
+    building.remove();
+    building = document.querySelector(".house");
+  }
+}
+ 
+
+function removeTimer()
+{
+  var h2 = document.querySelector("h2");
+      h2.remove();
+}
+
+ function removescoreSickEl()
+ {
+   var scoreSickEl = document.querySelector("div");  
+       scoreSickEl.remove();
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

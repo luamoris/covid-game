@@ -22,3 +22,33 @@ createScoreHealthy();
 
 createTimer();
 }
+
+
+
+function endGame()
+{
+  endGameBlock();
+  removeBuilding();
+  removeTimer();
+  removescoreSickEl();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
