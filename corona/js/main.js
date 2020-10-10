@@ -2,53 +2,42 @@
 Запуск игры
 =========================================================*/
 
+// Запуск
 createStartBlock();
+startButton.onclick = gameStart;
 
-
-
-function gameStart(argument) {
-gameName.remove();
-startBlock.remove();
-
-createHouse(120, "hospital");
-createHouse(340, "house");
-createHouse(560, "hospital");
-createHouse(780, "house");
-
-
-createScoreDead();
-createScoreSick();
-createScoreHealthy();
-
-createTimer();
-}
-
-
-
-function endGame()
+// Функция начала игры 
+function gameStart() 
 {
-  endGameBlock();
-  removeBuilding();
-  removeTimer();
-  removescoreSickEl();
+	startButton.onclick = null;
+	gameName.style.display = "none";
+	startBlock.remove();
+	createGameElements();
 }
 
+// Функция рестарта 
+function gameRestart()
+{
+	restartButton.onclick = null;
+	gameName.style.display = "none";
+	endGameBlock.remove();
+	peopleCount = 0;
+	createGameElements();
+}
 
+// Функция окончания игры 
+function gameover()
+{
+	removeTimer();
+	removeVaccine();
+	removePeople();
+	removeBuilding();
+	removeScore();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	setTimeout(function() 
+	{ 
+		createEndGameBlock();
+		gameName.style.display = "block";
+		restartButton.onclick = gameRestart;
+	}, 1000);
+}

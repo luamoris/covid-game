@@ -3,88 +3,6 @@
 Дополнительные функции
 =========================================================*/
 
-//создание старт блока
-function createStartBlock() 
-{
-    gameName();
-    startBlock = document.createElement("div");
-    startBlock.id = "start-block";
-
-    var startButton = document.createElement("button");
-    startButton.id = "start-button";
-    startButton.innerText = "Начать";
-
-    startBlock.appendChild(startButton);
-
-    gameBlock.appendChild(startBlock);
-
-    startButton.onclick = gameStart;
-} 
-
-function gameName()
-{
-    gameName = document.createElement("h2");
-    gameName.id = "game-name";
-    gameName.innerText = "Covid Game";
-
-
-    infoBlock.appendChild(gameName);
-}
-
-
-// Блок конца игры
-function endGameBlock()
-{
-   
-   endGameBlock = document.createElement("div");
-   endGameBlock.id = "endGameBlock";
-   var h2 = document.createElement("h2");
-       h2.id = "h2";
-       if (scoreDead >= 10 || scoreSick >=20 )
-       {
-       endGame; 
-       h2.innerText = "К сожалению вы допустили Эпидемию Covid-19 до появления вакцины";
-       }else
-       {
-       h2.innerText = "Поздравляю!!! Вам удалось остановить расспростронение эпидемии Covid-19 до появления вакцины";
-       }
-   var h3 = document.createElement("h2");
-       h3.innerText = "Количество здоровых:";
-       h3.id = "h3";
-   var spanh3 = document.createElement("span");   
-       spanh3.innerText = scoreHealthy;
-       h3.appendChild(spanh3);
-
-   var h4 =  document.createElement("h2");
-       h4.innerText = "Количество больных:";
-       h4.id = "h4";
-   var spanh4 = document.createElement("span");   
-       spanh4.innerText = scoreSick;
-       h4.appendChild(spanh4);
-
-   var h5 =  document.createElement("h2"); 
-       h5.innerText = "Количество смертей:";
-       h5.id = "h5";
-   var spanh5 = document.createElement("span");   
-       spanh5.innerText = scoreDead;
-       h5.appendChild(spanh5);
-       gameBlock.appendChild(endGameBlock);
-       endGameBlock.appendChild(h2);
-       endGameBlock.appendChild(h3);
-       endGameBlock.appendChild(h4);
-       endGameBlock.appendChild(h5);
-}
-
-
-
-
-
-
-
-
-
-
-
 // Рандом
 function random(max) 
 {
@@ -122,48 +40,38 @@ function createPeople()
     var people = document.createElement("div");
     people.id = "people" + peopleCount;
 
+    var colorEl = document.createElement("div");
+    colorEl.id = "img-block";
+    var img = document.createElement("img");
+    colorEl.appendChild(img);
+
     var choiceOfClass = random(100);
-    if(choiceOfClass % 2 == 0) { people.className = "people healthy";  }
-    else { people.className = "people sick"; }
+    if(choiceOfClass % 2 == 0) 
+    { 
+        people.className = "people healthy";  
+        img.src = "img/healthy1.png";
+    }
+    else 
+    { 
+        people.className = "people sick"; 
+        if(choiceOfClass >= 50) { img.src = "img/sick1.png"; }
+        else { img.src = "img/sick2.png"; }
+    }
 
     var dottedLine = document.createElement("div");
     dottedLine.className = "vl";
 
     people.appendChild(dottedLine);
+    people.appendChild(colorEl);
     gameBlock.appendChild(people);
     return people;
-}
-
-// Создание жизней
-function сreateLifes(newQuantityLifes)
-{
-    var lifes = document.createElement("div");
-    lifes.id = "lifes";
-
-    var count = 0;
-    while (count != newQuantityLifes)
-    {
-        var life = document.createElement("span");
-        life.id = "life";
-        lifes.appendChild(life);
-        count++;
-    }
-    gameBlock.appendChild(lifes);
-}
-
-// Создание очков
-function createPoints()
-{
-    var points = document.createElement("div");
-    points.id = "points";
-    points.innerText = score;
-    gameBlock.appendChild(points);
 }
 
 // Создание таймера игры
 function createTimer()
 {
     var h2 = document.createElement("h2");
+    h2.id = "game-time";
     h2.innerText = "Время: ";
 
     var timer = document.createElement("span");
@@ -182,7 +90,14 @@ function createTimer()
         { 
             clearInterval(timeOut); 
             clearInterval(spawn);
-            endGame();
+            var isEnd = setInterval(function() 
+            {
+                if(document.querySelector(".people") == null)
+                {
+                    clearInterval(isEnd);
+                    gameover();
+                }
+            }, 100);
         }
     }, 1000);
 }
@@ -199,6 +114,7 @@ function createScoreSick()
     img.src = "img/sick.png";
 
     quantitySickEl = document.createElement("h5");
+    scoreSick = 0;
     quantitySickEl.innerText = scoreSick;
 
     colorEl.appendChild(img);
@@ -219,6 +135,7 @@ function createScoreHealthy()
     img.src = "img/healthy.png";
 
     quantityHealthyEl = document.createElement("h5");
+    scoreHealthy = 0;
     quantityHealthyEl.innerText = scoreHealthy;
 
     colorEl.appendChild(img);
@@ -239,6 +156,7 @@ function createScoreDead()
     img.src = "img/tomb.png";
 
     quantityDeadEl = document.createElement("h5");
+    scoreDead = 0;
     quantityDeadEl.innerText = scoreDead;
 
     colorEl.appendChild(img);
@@ -247,7 +165,129 @@ function createScoreDead()
     infoBlock.appendChild(scoreDeadEl);
 }
 
-  
+//Создание старт блока
+function createStartBlock() 
+{
+    gameName();
+    startBlock = document.createElement("div");
+    startBlock.id = "start-block";
+
+    startButton = document.createElement("button");
+    startButton.id = "start-button";
+    startButton.innerText = "Начать";
+
+    startBlock.appendChild(startButton);
+    gameBlock.appendChild(startBlock);
+
+    // return startButton;
+} 
+
+// Создание блока с названием игры
+function gameName()
+{
+    gameName = document.createElement("h2");
+    gameName.id = "game-name";
+    gameName.innerText = "COVID GAME";
+    infoBlock.appendChild(gameName);
+}
+
+// Блок конца игры
+function createEndGameBlock()
+{
+    endGameBlock = document.createElement("div");
+    endGameBlock.id = "end-game-block";
+
+    var result = document.createElement("h2");
+    result.id = "result";
+
+    if(scoreDead + scoreSick >= scoreHealthy) 
+    {
+        result.innerText = "Вы допустили распространение эпидемии COVID-19 до появления вакцины";
+        endGameBlock.style.color = "#c96b74";
+    } 
+    else 
+    {
+        result.innerText = "Вам удалось остановить расспростронение эпидемии Covid-19 до появления вакцины";
+        endGameBlock.style.color = "#6ca452";
+    }
+
+    var statistic = document.createElement("div");
+    statistic.id = "statistic";
+
+    var stat = document.createElement("h3")
+    stat.innerText = "Статистика:";
+    statistic.appendChild(stat);
+    
+    var healthy = document.createElement("h3")
+    healthy.innerText = "Количество здоровых: " + scoreHealthy;
+    statistic.appendChild(healthy);
+
+    var sick = document.createElement("h3")
+    sick.innerText = "Количество больных: " + scoreSick;
+    statistic.appendChild(sick);
+
+    var dead = document.createElement("h3")
+    dead.innerText = "Количество смертей: " + scoreDead;
+    statistic.appendChild(dead);
+
+    restartButton = document.createElement("button");
+    restartButton.id = "restart-button";
+    restartButton.innerText = "Попробовать снова";
+
+    endGameBlock.appendChild(result);
+    endGameBlock.appendChild(statistic);
+    endGameBlock.appendChild(restartButton);
+    gameBlock.appendChild(endGameBlock);
+}
+
+// Создание вакцины
+function createVaccine()
+{
+    var vaccineBlock = document.createElement("div");
+    vaccineBlock.id = "vaccine-block";
+
+    var vaccine = document.createElement("div");
+    vaccine.id = "vaccine";
+
+    var loader = document.createElement("div");
+    loader.id = "loader";
+
+    var colorEl = document.createElement("div");
+    var img = document.createElement("img");
+    img.src = "img/vaccine.png";
+
+    colorEl.appendChild(img);
+    vaccine.appendChild(loader);
+
+    vaccineBlock.appendChild(colorEl);
+    vaccineBlock.appendChild(vaccine);
+
+    infoBlock.appendChild(vaccineBlock);
+}
+
+// Создание всех элементов для игры 
+function createGameElements()
+{
+    setTimeout(function() 
+    {
+        createHouse(120, "hospital");
+        createHouse(340, "house");
+        createHouse(560, "hospital");
+        createHouse(780, "house");
+
+        createScoreDead();
+        createScoreSick();
+        createScoreHealthy();
+
+        createTimer();
+
+        createVaccine();
+        loading(time);
+
+    }, 200);
+}
+
+
 
 /*========================================================
 Обработка элементов игры
@@ -263,7 +303,7 @@ function scoring(person)
         typePerson = "people sick";
     }
 
-    if( (left >= 100 && left <= 210) || (left >= 540 && left <= 650) )
+    if( (left >= 95 && left <= 210) || (left >= 535 && left <= 650) )
     {
         // hospital
         if(typePerson == "people healthy")
@@ -276,7 +316,7 @@ function scoring(person)
             quantityHealthyEl.innerText = scoreHealthy;
         }
     }
-    else if( (left >= 320 && left <= 430) || (left >= 760 && left <= 870) )
+    else if( (left >= 315 && left <= 430) || (left >= 755 && left <= 870) )
     {
         // house
         if(typePerson == "people healthy")
@@ -318,14 +358,16 @@ function randomMovement()
         }
     }, 20);
 
-    people.onmousemove = function() 
+    people.onmouseover = function() 
     {
         dottedLine.style.display = "block";
+        people.style.boxShadow = "0 0 2px white";
     }
 
     people.onmouseleave = function() 
     {
         dottedLine.style.display = "none";
+        people.style.boxShadow = "none";
     }
 
     people.onclick = function() 
@@ -334,7 +376,7 @@ function randomMovement()
         clearInterval(running);
         dottedLine.style.display = "none";
         people.onclick = null;
-        people.onmousemove = null;
+        people.onmouseover = null;
         people.onmouseleave = null;
 
         var timer = setInterval(function() 
@@ -358,75 +400,86 @@ function peopleSpawner()
     spawn = setInterval(function () 
     {
         randomMovement();
-    }, 1600)
+    }, 1000)
 }
 
+// Анимация вакцины 
+function loading(seconds) 
+{
+    let load = document.querySelector("#loader");
+    let line = 0.0;
+    load.style.width = line + "px";
 
+    let speedLoading = Math.floor(((seconds / 146) * 0.1) * 1000);
 
-
-
-
-
-
-
+    let tim = setInterval(function() {
+        line += 0.1;
+        load.style.width = line + "px";
+        if(Math.floor(line) == 146) 
+        { 
+            clearInterval(tim); 
+        }
+    }, speedLoading);
+}
 
 /*================================================
 Удаление элиментов игры:
 =================================================*/
 
+// Удаление домов
 function removeBuilding()
 {
- var building = document.querySelector(".hospital");
- while (building != null)
- {
-    building.remove();
-    building = document.querySelector(".hospital");
- }
-  var building = document.querySelector(".house");
-  while (building != null)
-  {
-    building.remove();
+    var building = document.querySelector(".hospital");
+    while (building != null)
+    {
+        building.remove();
+        building = document.querySelector(".hospital");
+    }
+
     building = document.querySelector(".house");
-  }
+    while (building != null)
+    {
+        building.remove();
+        building = document.querySelector(".house");
+    }
+}
+
+// Удаление людей
+function removePeople()
+{
+    var person = document.querySelector(".people");
+    while(person != null)
+    {
+        person.remove();
+        person = document.querySelector(".people");
+    }
 }
  
-
+// Удаление таймера
 function removeTimer()
 {
-  var h2 = document.querySelector("h2");
-      h2.remove();
+    var timer = document.querySelector("#game-time");
+    timer.remove();
 }
 
- function removescoreSickEl()
- {
-   var scoreSickEl = document.querySelector("div");  
-       scoreSickEl.remove();
- }
+// Удаление блоков счета
+function removeScore()
+{
+    var scoreSick = document.querySelector("#score-sick");  
+    scoreSick.remove();
 
+    var scoreHealthy = document.querySelector("#score-healthy");  
+    scoreHealthy.remove();
 
+    var scoreDead = document.querySelector("#score-dead");  
+    scoreDead.remove();
+}
 
+// Удаление вакцины
+function removeVaccine()
+{
+    var vaccineBlock = document.querySelector("#vaccine-block");
+    vaccineBlock.remove();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*=================================================THE END=================================================*/

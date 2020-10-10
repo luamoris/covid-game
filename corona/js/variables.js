@@ -2,18 +2,14 @@
 Переменные
 ===================================================*/
 
-// Счет в игре
-var score = 0;
 // Время игры в секундах
-var time = 60;
+var time = 30;
 // Количество людей 
 var peopleCount = 0;
 // Таймер, который отвечает за появление людей
 var spawn = null;
-// Количество жизней 
-var quantityLifes = 5;
 // Максимально возможная скорость движение людей
-var speedMax = 2;
+var speedMax = 4;
 
 
 // Количество больних
@@ -33,12 +29,7 @@ var scoreDead = 0;
 // Элемент в который нужно записывать количество людей, которые умерли
 var quantityDeadEl = null;
 
-//блок старта
-var startBlock =  null;
-//кнопка старта
-var startButton = null;
-//название игры
-var gameName = null;
+
 
 
 /*=================================================
@@ -49,3 +40,13 @@ var gameName = null;
 var gameBlock = document.querySelector("#gameBlock");
 // Информационный блок
 var infoBlock = document.querySelector("#infoBlock");
+// Блок старта
+var startBlock =  null;
+// Кнопка старта
+var startButton = null;
+// Название игры
+var gameName = null;
+// Блок конца игры
+var endGameBlock = null;
+// Кнопка рестарта
+var restartButton = null;

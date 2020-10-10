@@ -1,5 +1,14 @@
-body {
+body 
+{
     background: #232323;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+img 
+{
+    pointer-events: none; 
 }
 
 /* Поле Игры */
@@ -57,6 +66,7 @@ body {
     height: 50px;
     left: -40px;
     border-radius: 50%;
+    box-shadow: none; /* 0 0 5px #6ca452 */
 }
 
 .healthy
@@ -67,6 +77,18 @@ body {
 .sick
 {
     background: #c96b74;
+}
+
+.people #img-block
+{
+    width: 50px;
+    height: 50px;
+}
+
+.people #img-block img
+{
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -114,7 +136,7 @@ body {
 }
 
 
-#infoBlock h2 
+#infoBlock #game-time
 {
     position: absolute;
     margin: 15px 0 15px 15px;
@@ -224,18 +246,17 @@ body {
 {
     width: 100%;
     height: 100%;
-    background: #FFF;
     position: absolute;
     top: 0;
     left: 0;
     background: #4c4c4c;
-;
 }
+
 #start-block button
 {
-    background-color: #1b1b1b; /* Green */
+    background-color: transparent;
     border: none;
-    color: white;
+    color: #c9b56b;
     padding: 40px 80px;
     text-align: center;
     text-decoration: none;
@@ -246,69 +267,145 @@ body {
     top: 220px;
     left: 360px;
     position: absolute;
+    box-shadow: 0 0 5px #c9b56b;
+    outline: none;
 }
 
+#start-block button:hover 
+{
+    opacity: 0.9;
+    background: #c9b56b;
+    color: #4c4c4c;
+    border: none;
+    outline: none;
+}
+
+#start-block button:active 
+{
+    background-color: #d6706d;
+    color: #4c4c4c;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px #ff6d69;
+}
 
 #game-name 
 {
-    left: 575px;
+    position: absolute;
+    margin: 10px 0 10px 0;
+    color: #c9b56b;
+    width: 230px;
+    left: calc(50% - 115px);
+    right: calc(50% - 115px);
     font-size: 34px;
 }
 
-#endGameBlock
+
+/*The end block*/
+#end-game-block
 {
   position: relative;
-  background: #4c4c4c; 
+  background: #3e3e3e; 
   width: 1000px;
   height: 600px;
   margin: 0 auto; 
   overflow: hidden;
   text-align: center;
 }
-#h2
-{
- position: absolute;
- font-size: 50px;
-}
-#h3 span
-{
-    color:  green;
-}
-#h3
-{
-  
-   position: relative;
-   top:250px;
-   font-size: 35px; 
-}
-#h4 span
-{
-    color: red;
-}
-#h4
-{
- 
-  position: relative;
-  top:300px;
-  font-size: 35px;   
-}
-#h5
-{
 
-  position: relative;
-  top:350px;
-  font-size: 35px;   
+#end-game-block #result
+{
+    position: absolute;
+    font-size: 45px;
+    margin: 20px 35px 20px 35px;
+    box-shadow: 0 0 5px #c9b56b;
+    padding: 20px 35px 20px 35px;
 }
 
+#end-game-block #statistic
+{
+    position: absolute;
+    margin: 30px 35px 25px 35px;
+    padding: 25px 515px 25px 35px;
+    top: 200px;
+    width: 380px;
+    box-shadow: 0 0 5px #c9b56b;
+}
 
+#end-game-block #statistic h3 
+{
+    font-size: 30px;
+    margin: 10px;
+    float: left;
+}
 
+#end-game-block #restart-button
+{
+    position: absolute;
+    top: 500px;
+    right: 0px;
+    margin: 20px 35px 20px 35px;
+    padding: 10px;
+    background: transparent;
+    color: #c9b56b;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px #c9b56b;
+    cursor: pointer;
+}
 
+#end-game-block #restart-button:hover 
+{
+    opacity: 0.9;
+    background: #c9b56b;
+    color: #4c4c4c;
+}
 
+#end-game-block #restart-button:active 
+{
+    background-color: #d6706d;
+    color: #4c4c4c;
+    box-shadow: 0 0 5px #ff6d69;
+}
 
+/* Вакцина */
 
+#vaccine-block
+{
+    float: right;
+    width: 270px;
+    height: 100%;
+}
 
+#vaccine-block #vaccine {
+    position: relative;
+    border: 2px solid #245791;
+    width: 150px;
+    height: 20px;
+    margin: 18px 50px 18px 0;
+}
 
+#vaccine-block #vaccine #loader {
+    content: "";
+    position: absolute;
+    width: 146px;
+    height: 16px;
+    top: 2px;
+    left: 2px;
+    background-color: #48aee2;
+    margin: 0;
+}
 
+#vaccine-block div
+{
+    width: 30px;
+    height: 30px;
+    margin: 15px 15px 15px 15px;
+    float: left;
+}
 
-
-
+#vaccine-block div img
+{
+    width: 100%;
+    height: 100%;
+}
