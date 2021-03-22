@@ -1,10 +1,10 @@
-## Project Name
+## Covid Game 2019
 
 
 ### Links
 
 > + [Source code on GitHub][solution-repository]
-> + [Live Site][deploy]
+> + [Live Site Version 1.0.0][deploy]
 
 
 ---
@@ -13,8 +13,8 @@
 #### Get `started`
 
 ```console
-	git clone https://github.com/
-	cd react-tmpl
+	git clone https://github.com/luamoris/covid-game.git
+	cd covid-game
 	npm i
 	npm start
 ```
@@ -61,13 +61,13 @@
 > - Mobile-first workflow
 > - [React][react] - JS library
 
-### What I learned
+<!-- ### What I learned -->
 
->  + 
+<!-- >  +  -->
 
-### Useful resources
+<!-- ### Useful resources -->
 
-> + 
+<!-- > +  -->
 
 ### Author
 
@@ -78,8 +78,8 @@
 </p>
 
 
-[solution-repository]: https://
-[deploy]: https://
+[solution-repository]: https://github.com/luamoris/covid-game
+[deploy]: https://luamoris.github.io/covid-game/
 
 [stylelint]: https://stylelint.io/
 [react]: https://reactjs.org/
