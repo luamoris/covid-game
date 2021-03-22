@@ -1,0 +1,46 @@
+/* NETWORKS */
+
+.networks {
+	float: right;
+	height: 100%;
+
+	&__list {
+		display: flex;
+		height: 100%;
+	}
+
+	&__item {
+		width: 50px;
+		height: 100%;
+		background-color: var(--light-line);
+		transition: all 100ms ease-in;
+
+		&:hover {
+			background-color: var(--icon);
+
+			.icon {
+				transform: scale(1.2);
+			}
+		}
+
+		&:active {
+			.icon {
+				transform: scale(1);
+			}
+		}
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.icon {
+	font-size: 24px;
+	color: var(--bg);
+	transition: transform 150ms ease-in-out;
+}

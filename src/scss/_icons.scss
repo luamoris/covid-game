@@ -1,0 +1,79 @@
+@font-face {
+	src: url("../fonts/icons/icons.ttf") format("truetype");
+	font-family: "icons";
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+}
+
+%ic {
+	font-family: "icons";
+	font-weight: 400;
+	font-style: normal;
+	font-variant: normal;
+	font-size: 24px;
+	line-height: 1;
+	text-transform: none;
+	color: var(--icon);
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+	@extend%ic;
+}
+
+._icon-timer::before {
+	content: "\e952";
+}
+
+._icon-settings::before {
+	content: "\e994";
+}
+
+._icon-close::before {
+	content: "\ea0f";
+}
+
+._icon-done::before {
+	content: "\ea10";
+}
+
+._icon-play::before {
+	content: "\ea1c";
+}
+
+._icon-pause::before {
+	content: "\ea1d";
+}
+
+._icon-stop::before {
+	content: "\ea1e";
+}
+
+._icon-circle-up::before {
+	content: "\ea41";
+}
+
+._icon-circle-right::before {
+	content: "\ea42";
+}
+
+._icon-circle-down::before {
+	content: "\ea43";
+}
+
+._icon-circle-left::before {
+	content: "\ea44";
+}
+
+._icon-telegram::before {
+	content: "\ea95";
+}
+
+._icon-github::before {
+	content: "\eab0";
+}
+
+._icon-linkedin::before {
+	content: "\eaca";
+}

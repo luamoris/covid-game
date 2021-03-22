@@ -1,0 +1,56 @@
+/* == == == == == == == == == == == == == == == == == == ==
+	ROOT
+== == == == == == == == == == == == == == == == == == == == */
+
+:root {
+	--bg: #1c1b21;
+	--icon: #b9aa8d;
+	--light-line: #515151;
+}
+
+/* == == == == == == == == == == == == == == == == == == ==
+	FONTS
+== == == == == == == == == == == == == == == == == == == == */
+
+@import "icons";
+
+/* == == == == == == == == == == == == == == == == == == ==
+	NORMALIZE
+== == == == == == == == == == == == == == == == == == == == */
+
+@import "normalize";
+
+/* == == == == == == == == == == == == == == == == == == ==
+	MAIN APP
+== == == == == == == == == == == == == == == == == == == == */
+
+#wrapper {
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+.app {
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 100%;
+	background-color: var(--bg);
+}
+
+.conteiner {
+	margin: 0 auto;
+	padding: 0 10px;
+	max-width: 1440px;
+}
+
+.app__body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	min-height: 100vh;
+}
+
+/* == == == == == == == == == == == == == == == == == == ==
+	Style
+== == == == == == == == == == == == == == == == == == == == */

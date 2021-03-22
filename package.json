@@ -1,0 +1,43 @@
+{
+	"name": "react-template",
+	"homepage": ".",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"stylelint": "stylelint src/scss"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"sass": "^1.32.8",
+		"stylelint": "^13.12.0",
+		"stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+		"stylelint-order": "^4.1.0",
+		"stylelint-scss": "^3.19.0"
+	},
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.11.9",
+		"@testing-library/react": "^11.2.5",
+		"@testing-library/user-event": "^12.8.3",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-scripts": "4.0.3",
+		"web-vitals": "^1.1.1"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}

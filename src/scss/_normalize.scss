@@ -1,0 +1,117 @@
+* {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+html {
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+}
+
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address,
+big, code, del, dfn, em, img, q, s, samp, small, strong, sub, sup, tt, var, b, u, i, dl,
+dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr,
+th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu,
+main, nav, output, section, summary, time, mark, audio, video {
+	vertical-align: baseline;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+	margin: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	line-height: 1.15;
+}
+
+h1 {
+	margin: 0.67em 0;
+	font-size: 2em;
+}
+
+a {
+	text-decoration: none;
+	background-color: transparent;
+}
+
+b,
+strong {
+	font-weight: 500;
+}
+
+small {
+	font-size: 80%;
+}
+
+figure {
+	margin: 1em 40px;
+}
+
+img {
+	border-style: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+[hidden] {
+	display: none;
+}
+
+[clear] {
+	clear: both;
+}
+
+::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+/* Box Model */
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* A better looking default horizontal rule */
+
+hr {
+	display: block;
+	margin: 1em 0;
+	border: 0;
+	border-top: 1px solid #ccc;
+	padding: 0;
+	height: 1px;
+}
+
+button, input {
+	outline: none;
+}
