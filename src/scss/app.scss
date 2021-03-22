@@ -3,16 +3,22 @@
 == == == == == == == == == == == == == == == == == == == == */
 
 :root {
-	--bg: #1c1b21;
-	--icon: #b9aa8d;
-	--light-line: #515151;
+	--bg: #2f3132;
+	--main: #e6e6e6;
+	--menu: #2f3132;
+	--icon: #fff;
+	--icon-hover: #565656;
+	--topic: #4f4f4f;
 }
 
 /* == == == == == == == == == == == == == == == == == == ==
 	FONTS
 == == == == == == == == == == == == == == == == == == == == */
 
+$DefaultFont: "Montserrat";
+
 @import "icons";
+@import "fonts";
 
 /* == == == == == == == == == == == == == == == == == == ==
 	NORMALIZE
@@ -38,7 +44,6 @@
 
 .conteiner {
 	margin: 0 auto;
-	padding: 0 10px;
 	max-width: 1440px;
 }
 
